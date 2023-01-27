@@ -31,12 +31,10 @@ function createNewTodo(todoText: string, todos: Todo[]) {
   }
 }
 
-function createHtml(todos: Todo[]) {
+export function createHtml(todos: Todo[]) {
   localStorage.setItem("todos", JSON.stringify(todos));
 
-  let todosContainer: HTMLUListElement = document.getElementById(
-    "todos"
-  ) as HTMLUListElement;
+  let todosContainer = document.getElementById("todos") as HTMLUListElement;
 
   todosContainer.innerHTML = "";
 
@@ -62,7 +60,7 @@ function toggleTodo(todo: Todo) {
   createHtml(todos);
 }
 
-function displayError(error: string, show: boolean) {
+export function displayError(error: string, show: boolean) {
   let errorContainer: HTMLDivElement = document.getElementById(
     "error"
   ) as HTMLDivElement;
@@ -76,9 +74,9 @@ function displayError(error: string, show: boolean) {
   }
 }
 
-function clearTodos(todos: Todo[]) {
+export function clearTodos(todos: Todo[]) {
   removeAllTodos(todos);
   createHtml(todos);
 }
 
-createHtml(todos);
+// createHtml(todos);
